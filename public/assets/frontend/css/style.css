@@ -144,9 +144,13 @@ CSS FOR SECTION-1
 
 .product-sec1 {
     position: absolute;
-    left: -79px;
+    /* left: -79px;
     bottom: -60px;
+    z-index: 3; */
+    left: -60px;
+    bottom: -24px;
     z-index: 3;
+    width: 303px !important;
 }
 
 .top_left1 {
