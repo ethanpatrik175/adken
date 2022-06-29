@@ -1,0 +1,879 @@
+@charset "utf-8";
+
+/* CSS Document */
+/*----------------
+RESET CSS
+-----------------*/
+body {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0;
+    background: url(../images/body-bg.jpg) no-repeat center top #f4f6f8;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+div,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+p,
+img,
+form,
+input,
+textarea {
+    margin: 0;
+    padding: 0;
+}
+
+table,
+tr,
+td {
+    border: 0;
+}
+
+a {
+    outline: none;
+    color: #323232;
+    text-decoration: none;
+}
+
+a:hover {
+    outline: none;
+    color: #000;
+    text-decoration: none;
+}
+
+img {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.img-full {
+    max-width: 100%;
+}
+
+.clearall {
+    clear: both;
+    font-size: 1px;
+    line-height: 1px;
+    height: 1px;
+}
+
+/*-----------------------
+MAIN CSS START
+------------------------*/
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.error-msg {
+    background: #f44336 !important;
+    position: absolute;
+    color: #fff;
+    line-height: 25px;
+    padding: 0 15px;
+    bottom: -20px;
+    right: 0;
+    z-index: 9;
+}
+
+/*-----------------------
+CSS FOR TOP BAR SECTION
+-------------------------*/
+.red-div {
+    float: left;
+    width: 100%;
+    background-color: #d4b14a;
+    padding: 18px 0 22px 0;
+}
+
+.red-div p {
+    color: #fff;
+    width: 100%;
+    font-size: 17px;
+    line-height: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*-----------------------
+CSS FOR SECTION-1
+-------------------------*/
+.section-1 {
+    float: left;
+    width: 100%;
+    background: url(../images/sec1.jpg) no-repeat center top;
+}
+
+.section-1 .container {
+    position: relative;
+}
+
+.top_left {
+    width: 687px;
+    float: left;
+    height: 762px;
+    position: relative;
+}
+
+.top_left_inner {
+    padding-left: 265px;
+    text-align: center;
+}
+
+.product-sec1 {
+    position: absolute;
+    left: -79px;
+    bottom: -60px;
+    z-index: 3;
+}
+
+.top_left1 {
+    padding: 29px 20px 25px;
+    text-align: right;
+    margin-right: 38px;
+}
+
+.top_left1>span {
+    display: inline-block;
+    font-size: 14px;
+    padding-right: 10px;
+    text-align: right;
+    vertical-align: middle;
+    line-height: 16px;
+    font-weight: 600;
+}
+
+.top_left1>img {
+    vertical-align: middle;
+    margin-top: 3px;
+}
+
+.top_left2 {
+    width: 260px;
+    margin-left: 87px;
+    margin-bottom: 0px;
+}
+
+.top_left3 {
+    padding: 35px 0 35px 24px;
+}
+
+.top_left4 {
+    margin-left: 5px;
+}
+
+.top_left4 span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 25px;
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 3px 0;
+}
+
+.top_left5 {
+    background: rgba(0, 0, 0, 0) url(../images/hurry_arrow.png) no-repeat scroll center top;
+    color: #ffffff;
+    font-size: 30px;
+    height: 74px;
+    line-height: 73px;
+    margin-left: -75px;
+    margin-top: 27px;
+    padding-right: 28px;
+    text-align: right;
+    text-transform: uppercase;
+    width: 495px;
+    font-family: 'Conv_HelveticaLTStd-Comp';
+    letter-spacing: 2px;
+    position: relative;
+}
+
+#rmnddv {
+    position: relative;
+    top: 85px;
+}
+
+#reminder {
+    width: 295px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    bottom: -105px;
+    left: 352px;
+    background: #595f70;
+    padding: 13px 0px;
+}
+
+#reminder p {
+    line-height: 18px;
+    opacity: 0;
+}
+
+.bl {
+    font-weight: bold;
+}
+
+.sec1-logo {
+    width: 90%;
+    margin: 15px 0 4px 0;
+}
+
+/*********form arrow **********/
+#side_arrow.side_arrow {
+    width: 110px;
+    position: absolute;
+    top: 205px;
+    right: -120px;
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+    transition: all 0.5s;
+}
+
+.side_arrow_up img {
+    height: 450px;
+}
+
+.side_arrow_up {
+    position: absolute;
+    width: 110px;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(-5deg);
+    transition: all 0.5s;
+    top: 80px;
+    right: -120px;
+}
+
+/*-----------------------
+CSS FOR SECTION-1 RIGHT PART
+-------------------------*/
+.top_right {
+    float: right;
+    width: 312px;
+}
+
+.form {
+    background: #ffffff none repeat scroll 0 0;
+    border: 3px solid #afb4c6;
+    border-top: none;
+}
+
+.top_form {
+    background: #595f70 none repeat scroll 0 0;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Conv_MyriadPro-BoldCond';
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.top_form>.timer>span {
+    background: #000000 none repeat scroll 0 0;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 24px;
+    margin: 0 1px;
+    line-height: 25px;
+    padding: 7px 6px 3px;
+    vertical-align: middle;
+    font-family: 'Conv_MyriadPro-BoldCond';
+}
+
+.form_header {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 22px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form_header>span {
+    display: block;
+    font-weight: 700;
+    font-size: 26px;
+    color: #d4b14a;
+}
+
+.text {
+    display: block;
+    height: 36px;
+    margin-bottom: 11px;
+    position: relative;
+}
+
+.form_bl label {
+    color: #000;
+    display: block;
+    float: left;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 26px;
+    padding-right: 10px;
+    text-align: right;
+    width: 100px;
+}
+
+.form_bl input,
+.form_bl select {
+    border: 1px solid #cccccc;
+    color: #000000;
+    float: left;
+    font-size: 14px;
+    line-height: 26px;
+    height: 32px;
+    width: 188px;
+    border-radius: 5px;
+    padding: 3px 8px;
+    background-color: #fff;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form-button {
+    position: relative;
+    top: 30px;
+    left: 20px;
+    width: 293px;
+}
+
+.arrow {
+    vertical-align: middle;
+    margin: -6px 5px 0 0;
+}
+
+.btn {
+    padding: 18px 25px 18px 47px;
+    box-shadow: 4px 4px 0 0 #7b7b7b;
+    border-radius: 5px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    width: 90%;
+    background: #00EFC5 url(../images/rush-arrow23.png) no-repeat 28px 23px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #d4b14a url(../images/rush-arrow-white.png) no-repeat 28px 23px;
+    outline: none;
+}
+
+.btn:active {
+    box-shadow: none;
+    top: 4px;
+}
+
+#form-btm {
+    background: url(../images/form-btm.jpg) no-repeat center top;
+    width: auto;
+    height: 181px;
+    margin-top: 32px;
+}
+
+/*-----------------------
+CSS FOR SECTION-2
+-------------------------*/
+.inner-sections {
+    float: left;
+    width: 100%;
+    padding-top: 30px;
+    /*background-color:#f4f6f8;*/
+    position: relative;
+    z-index: 2;
+}
+
+.heading {
+    float: left;
+    background: #595f70 none repeat scroll 0 0;
+    color: #ffffff;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 54px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.heading span {
+    background: #d4b14a url(../images/bg_heading.jpg) no-repeat scroll right 0;
+    display: block;
+    float: left;
+    font-size: 22px;
+    line-height: 54px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-right: 12px;
+    padding: 0 40px 0 20px;
+    text-transform: uppercase;
+}
+
+/*-----------------------
+CSS FOR FEATURE SECTION
+-------------------------*/
+.featured_block {
+    float: left;
+    width: 100%;
+    padding: 35px 50px 20px 50px;
+    background-color: #fff;
+}
+
+.featured_block_left {
+    float: left;
+    width: 50%;
+    text-align: left;
+}
+
+.featured_block_left>p {
+    float: left;
+    width: 100%;
+    font-size: 14px;
+    line-height: 22px;
+    padding-bottom: 25px;
+    color: #333333;
+}
+
+.featured_block_right {
+    float: right;
+    margin-right: -20px;
+    width: 46%;
+}
+
+.featured_block_right>img {
+    margin-bottom: 20px;
+}
+
+.before_after {
+    margin-top: -52px;
+}
+
+/*-----------------------
+CSS FOR SPOTLIGHT SECTION
+-------------------------*/
+.spotlight {
+    padding-left: 584px;
+    padding-top: 1px;
+    background: url(../images/spotlight.jpg) no-repeat center top;
+    height: 605px;
+    background-color: #fff;
+}
+
+.spotlight_heading_img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -24px 0 0 -75px;
+    position: relative;
+}
+
+.spotlight_heading {
+    display: inline-block;
+    vertical-align: middle;
+    width: 98%;
+    background: #595f70 none repeat scroll 0 0;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin: -18px 0 8px 2%;
+    padding: 11px 10px 11px 20px;
+}
+
+.spotlight_heading>span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.spotlight_list li {
+    background: #ffffff none repeat scroll 0 0;
+    border-left: 5px solid #d4b14a;
+    color: #333333;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 10px;
+    padding: 11px 10px 11px 18px;
+}
+
+.spotlight_list li b {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.spotlight_list li+li {
+    border-color: #662d91;
+}
+
+.spotlight_list li+li+li {
+    border-color: #449ecb;
+}
+
+.spotlight_list li+li+li+li {
+    border-color: #00efc5;
+}
+
+/*-----------------------
+CSS FOR CTA SECTION
+-------------------------*/
+.btn_block {
+    background: #d4b14a none repeat scroll 0 0;
+    color: #ffffff;
+    padding: 15px 15px 10px;
+}
+
+.btn_block_txt {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 27px;
+    padding: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.btn_block_txt>b {
+    display: block;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.rush_btn {
+    background: url(../images/btn_rush.png) no-repeat center top;
+    float: right;
+    height: 70px;
+    width: 272px;
+}
+
+.rush_btn:hover {
+    background: url(../images/hover-btn.png) no-repeat center top;
+}
+
+/*-----------------------
+CSS FOR EXCLUSIVE SECTION
+-------------------------*/
+.exclusive {
+    background: #fff;
+    margin: 40px 0 0;
+    float: left;
+    width: 100%;
+}
+
+.exclusive .featured_block {
+    padding: 30px 50px 10px 50px;
+}
+
+.featured_block_left>ul {
+    margin: 0;
+    padding: 0 0 20px 15px;
+    float: left;
+    width: 100%;
+}
+
+.exclusive .featured_block_left {
+    width: 44%;
+}
+
+.exclusive .featured_block_right {
+    margin-top: -39px;
+    position: relative;
+    margin-right: -50px;
+    width: 53%;
+}
+
+.exclusive .featured_block_left li {
+    float: left;
+    width: 100%;
+    color: #333333;
+    list-style-type: square;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 17px;
+    line-height: 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.exclusive .featured_block_left li::marker {
+    color: #4cdbd9;
+    font-size: 24px;
+}
+
+.silk-jar {
+    max-width: 100%;
+}
+
+.product-excl {
+    position: absolute;
+    top: 85px;
+    left: 93px;
+    width: 250px;
+}
+
+.exclusive .featured_block_right>img {
+    margin-bottom: -7px;
+    margin-top: -20px;
+}
+
+.exclusive .quote {
+    max-width: 100%;
+}
+
+.rgt-quote1 {
+    float: left;
+    width: 98%;
+    text-align: center;
+    font-size: 17px;
+    line-height: 24px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    position: relative;
+    padding: 0 40px;
+    box-sizing: border-box;
+    letter-spacing: 0.4px;
+}
+
+.rgt-quote1:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 40px;
+    height: 36px;
+    background: url(../images/quote_left.jpg) no-repeat center center;
+}
+
+.rgt-quote1:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -5px;
+    width: 40px;
+    height: 36px;
+    background: url(../images/quote_right.jpg) no-repeat center center;
+}
+
+/*-----------------------
+CSS FOR LAYER 6 SECTION
+-------------------------*/
+.layer-6-body {
+    padding-bottom: 28px;
+    background: #fff none repeat scroll 0 0;
+    float: left;
+    width: 100%;
+}
+
+.layer-6-body .heading {
+    width: 100%;
+}
+
+.layer-6-body-left {
+    float: left;
+    width: 500px;
+    position: relative;
+}
+
+.layer-6-body-left img {
+    max-width: 100%;
+}
+
+.circle-content {
+    position: absolute;
+    top: 165px;
+    left: 164px;
+    width: 166px;
+    text-align: center;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.circle-content h2 {
+    font-size: 15px;
+    margin-top: 70px;
+    text-transform: uppercase;
+    width: 100%;
+    float: left;
+}
+
+.circle-content p {
+    font-size: 15px;
+    width: 100%;
+    float: left;
+    text-transform: uppercase;
+}
+
+.lay-6-prod {
+    position: absolute;
+    top: 425px;
+    left: 76px;
+}
+
+.layer-6-body-right {
+    float: right;
+    width: 500px;
+}
+
+.layer-6-txt1 {
+    float: left;
+    width: 100%;
+    padding-left: 25px;
+    padding-top: 24px;
+}
+
+.layer-6-txt1>p {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.layer-6-txt2,
+.layer-6-txt3 {
+    float: left;
+    width: 100%;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+.layer-6-txt2>p,
+.layer-6-txt3>p {
+    float: left;
+    width: 100%;
+    font-size: 13px;
+    padding-right: 30px;
+    line-height: 21px;
+}
+
+.layer-6-txt4 {
+    float: left;
+    width: 100%;
+    padding-left: 65px;
+    padding-top: 20px;
+}
+
+/*-----------------------
+CSS FOR LAYER 7 SECTION
+-------------------------*/
+.layer-7-imgs {
+    float: left;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.layer-7-imgs img {
+    display: inline-block;
+    margin-right: 14px;
+}
+
+.layer-7-imgs img:last-child {
+    float: right;
+    margin: 0;
+}
+
+/*-----------------------
+CSS FOR BOTTOM SECTION
+-------------------------*/
+.foot-part-1 {
+    background: url(../images/foot-model-1.jpg) no-repeat left top;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 425px;
+    margin-top: 40px;
+}
+
+.foot-part-1 .heading {
+    width: 100%;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.foot-part1-model {
+    float: left;
+}
+
+.foot-part1-model>img {
+    height: auto;
+    max-width: 92%;
+}
+
+.foot-part1-tag {
+    top: 72px;
+    left: 335px;
+    position: absolute;
+    z-index: 2;
+}
+
+.foot-part1-bottle {
+    position: absolute;
+    top: 150px;
+    left: 296px;
+}
+
+.foot-part1-logo {
+    position: absolute;
+    right: 178px;
+    top: 75px;
+}
+
+.foot-part1-achieve {
+    position: absolute;
+    right: 20px;
+    top: 190px;
+}
+
+.foot-part1-button {
+    position: absolute;
+    right: 131px;
+    bottom: 28px;
+}

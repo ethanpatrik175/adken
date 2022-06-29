@@ -1,0 +1,126 @@
+/*-----------------------
+FOOTER CSS START
+------------------------*/
+footer{
+	float:left;
+	width:100%;
+	padding:35px 0;
+	}
+footer p {
+	font-size: 12px;
+	width:100%;
+	line-height:22px;
+	text-align:center;
+	}
+footer p a{
+	color:#333333;
+	text-decoration:none;
+	}
+
+/*-----------------------
+ARROW ANIMATION CSS START
+------------------------*/
+.bnr-slider {
+    float: left;
+    width: 110%;
+    height: 100%;
+    background: url(../images/lp-arrow-in.png) no-repeat;
+    animation: AnimationName 2s cubic-bezier(0.43, 0.61, 1, 1) infinite;
+	position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+@-webkit-keyframes AnimationName {
+    100%{background-position:100% 50%}
+   	0%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    100%{background-position:100% 50%}
+   	0%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    100%{background-position:100% 50%}
+   	0%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    100%{background-position:100% 50%}
+   	0%{background-position:0% 50%}
+}
+
+/*-----------------------
+BUTTON PULSE CSS START
+------------------------*/
+/*pulse*/
+.pulse {
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-name: pulse;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.9);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0.9);
+	}
+}
+
+
+#viewing-lp.viewing {    
+	background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;    
+	border-radius: 5px;    
+	bottom: 10px;    
+	color: red;    
+	font-weight: bold;    
+	height: auto;    /*left: inherit;*/    
+	padding: 10px 15px;    
+	position: fixed;    
+	right: 10px;    
+	text-align: center;    
+	width: auto;    
+	z-index: 9;        
+	font-family: 'Open Sans', 
+	sans-serif !important;    
+	opacity: 0;    
+	transition: all ease 0.5s;    
+	-moz-transition: all ease 0.5s;    
+	-webkit-transition: all ease 0.5s;    
+	-o-transition: all ease 0.5s;
+	}
+
+#viewing-lp.viewing a {    
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;    
+	box-shadow: none;    
+	color: #fff;     
+	height: auto;    
+	left: 0;    
+	margin: 0;    
+	padding: 0;    
+	position: relative;    
+	right: 0;    
+	text-align: center;    
+	text-decoration: underline;    
+	top: 0;    
+	width: auto;
+	}
+
+#viewing-lp.viewing .close {    
+	background: #fff none repeat scroll 0 0;    
+	border-radius: 50%;    
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.59);    
+	cursor: pointer;    font-size: 13px;   
+	height: 17px;    left: -6px;    
+	line-height: 15px;    
+	position: absolute;    
+	text-align: center;    
+	top: -6px;    
+	width: 17px;
+	} 
+#viewing-lp.viewing p{ font-weight:normal;}
+#viewing-lp.viewing p a{ font-weight: bold; font-size: 16px;}  
+.f-size{ font-size: 14px; }
