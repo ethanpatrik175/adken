@@ -144,9 +144,13 @@ CSS FOR SECTION-1
 
 .product-sec1 {
     position: absolute;
-    left: -79px;
+    /* left: -79px;
     bottom: -60px;
+    z-index: 3; */
+    left: -60px;
+    bottom: -24px;
     z-index: 3;
+    width: 303px !important;
 }
 
 .top_left1 {
@@ -856,8 +860,10 @@ CSS FOR BOTTOM SECTION
 
 .foot-part1-bottle {
     position: absolute;
-    top: 150px;
-    left: 296px;
+    /* top: 150px; */
+    /* left: 296px; */
+    top: 130px;
+    left: 278px;
 }
 
 .foot-part1-logo {
