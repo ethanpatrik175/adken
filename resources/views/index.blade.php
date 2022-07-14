@@ -119,7 +119,7 @@
                                 2</span><span>5</span><span>0</span></span> ORDERS available now!</div>
                     <div class="form_bl">
                         <div class="form_header">Tell Us Where to send <span>Your bottle</span> </div>
-                        <form method="POST" action="{{ route('index.process') }}" name="prospect_form1"
+                        <form method="GET" action="{{ route('index.process') }}" name="prospect_form1"
                             class="noexirpop custom-validation" id="form1" novalidate>
                             @csrf
                             <div class="text">
@@ -260,7 +260,7 @@
                             depleted collagen stores, rejuvenate your skin, and add firmness to your skin with regular
                             use. </p>
                         <br>
-                        <img src="{{ asset('assets/frontend/images/graph.jpg') }}" alt="" width="434"
+                        <img src="{{ asset('assets/frontend/images/graph.png') }}" alt="" width="434"
                             height="287">
                     </div>
                     <div class="featured_block_right">
@@ -358,7 +358,7 @@
             <!--===/*Layer 6*/===-->
             <div class="layer-6-body">
                 <div class="layer-6-body-left">
-                    <img src="{{ asset('assets/frontend/images/layer-6-img.jpg') }}" alt="" width="506"
+                    <img src="{{ asset('assets/frontend/images/layer-6-img.png') }}" alt="" width="506"
                         height="505">
                     <div class="circle-content">
                         <h2>#Adken</h2>

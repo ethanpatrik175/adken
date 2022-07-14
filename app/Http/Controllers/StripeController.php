@@ -18,12 +18,36 @@ class StripeController extends Controller
         $product = Product::findOrFail($request->id);
         $productPrice = (($product->sale_price > 0) && ($product->retail_price > $product->sale_price)) ? number_format($product->sale_price, 2) : number_format($product->retail_price, 2);
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $payment = Stripe\Charge::create ([
-                "amount" => ($productPrice*100),
-                "currency" => "usd",
-                "source" => $request->stripeToken,
-                "description" => "This payment is for the product ".$product->name
-        ]);
+        
+        try {
+            $payment = Stripe\Charge::create ([
+                    "amount" => ($productPrice*100),
+                    "currency" => "usd",
+                    "source" => $request->stripeToken,
+                    "description" => "This payment is for the product ".$product->name
+            ]);
+        }
+        catch(\Stripe\Exception\CardException $e) {
+            
+            $data['type'] = 'danger';
+            $data['message'] = $e->getError()->message;
+            return redirect()->route('front.index')->with($data);
+            
+        } catch (\Stripe\Exception\InvalidRequestException $e) {
+            
+            $data['type'] = 'danger';
+            $data['message'] = $e->getError()->message;
+            return redirect()->route('front.index')->with($data);
+            
+        } catch (Exception $e) {
+            
+            $data['type'] = 'danger';
+            $data['message'] = $e->getError()->message;
+            return redirect()->route('front.index')->with($data);
+            
+        }
+        
+        
 
         $charge = new stdClass;
         $charge->charge_id = $payment->id;

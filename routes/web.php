@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
-Route::post('/index-process', [FrontendController::class, 'indexProcess'])->name('index.process');
+Route::get('/index-process', [FrontendController::class, 'indexProcess'])->name('index.process');
 Route::get('/checkout', [FrontendController::class, 'checkout'])->name('front.checkout');
 Route::post('/stripe-checkout-process', [StripeController::class, 'stripeCheckoutProcess'])->name('stripe.checkout.process');
 

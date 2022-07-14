@@ -17,8 +17,6 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-       
-
         if ($request->ajax()) {
             $data = Order::get();
             return DataTables::of($data)
@@ -28,10 +26,13 @@ class OrderController extends Controller
                     if(json_decode($row->payment_details))
                     {
                         $reciept = json_decode($row->payment_details)->receipt_url; 
-                        $btn .= '<a href="'.$reciept.'" class="btn btn-success btn-sm mt-1" target="__blank">View</a>&nbsp;';
+                        $btn .= '<a href="'.$reciept.'" class="btn btn-success btn-sm mt-1" target="__blank">Receipt</a>&nbsp;';
                     }
-                    $btn .= '<a href="javascript:void(0);" class="btn btn-primary btn-sm mt-1">Edit</a>&nbsp;';
+                    $btn .= '<a href="'.route('admin.orders.edit', $row->id).'" class="btn btn-warning btn-sm mt-1">Edit</a>&nbsp;';
+                    $btn .= '<a href="'.route('admin.orders.show', $row->order_number).'" class="btn btn-primary btn-sm mt-1" target="__blank">View Detail</a>&nbsp;';
                     return $btn;
+                    
+                    
                 })
                 ->addColumn('customer', function ($row) {
                     $shipping = json_decode($row->shipping_details);
@@ -83,7 +84,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -94,7 +95,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -103,9 +104,16 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($order_number)
     {
-        //
+        // dd($order_number);
+        $data['orders'] = Order::with('products')->where('order_number',$order_number)->first();
+        $data['Billings_details'] = json_decode(@$data['orders']->billing_details);
+        $data['product'] = @$data['orders']->products;
+        $data['shipping_detail'] = json_decode(@$data['orders']->shipping_details);
+        $data['payment_detail'] = json_decode(@$data['orders']->payment_details);
+        $data['payment_method_detail'] = @$data['payment_detail']->payment_method_details->card;
+        return view('backend.admin.order.show',$data);
     }
 
     /**
@@ -114,9 +122,11 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
-        //
+        
+        $data['order'] = Order::findorfail($id);
+        return view('backend.admin.order.edits', $data);
     }
 
     /**
@@ -126,9 +136,24 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request ,$id) 
     {
-        //
+        $Order = Order::findOrFail($id);
+            $Order->status = $request->status;
+            $Order->description = $request->description;
+                if ($Order->save()) {
+                    $data['type'] = "success";
+                    $data['message'] = "Order Updated Successfuly!.";
+                    $data['icon'] = 'mdi-check-all';
+    
+                    return redirect()->route('admin.orders.index')->with($data);
+                } else {
+                    $data['type'] = "danger";
+                    $data['message'] = "Failed to Update Order, please try again.";
+                    $data['icon'] = 'mdi-block-helper';
+    
+                    return redirect()->route('admin.orders.edit', $id)->withInput()->with($data);
+                }
     }
 
     /**

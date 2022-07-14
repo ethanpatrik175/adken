@@ -61,7 +61,7 @@
                             $subTotal = number_format($productPrice * $product->quantity, 2);
                             $total = number_format($subTotal + $product->shipping_charges, 2);
                             ?>
-                            <div class="box{{ $product->id }} {{ $counter == 1 ? 'selected' : '' }}"
+                            <div class="box selected"
                                 data-sub-total="{{ $subTotal }}" data-total="{{ $total }}"
                                 data-summary-image="{{ asset('assets/frontend/images/products/' . $product->summary_image) }}"
                                 data-offer-qty="{{ $product->quantity ?? 0 }}"
@@ -78,7 +78,10 @@
                                         <span> + {{ $pName }}</span>
                                     @endforeach
                                 </p>
-                                <div class="lft-cont">
+                                <div class="lft-cont" style="margin-top: 0px;">
+                                    @if(isset($product->description))
+                                        <p class="chk-p1">{!! $product->description !!}</p>
+                                    @endif
                                     <p class="pack-price">
                                         ${{ $product->sale_price > 0 && $product->retail_price > $product->sale_price ? number_format($product->sale_price, 2) : number_format($product->retail_price, 2) }}<span>/{{ $product->type ?? '-' }}</span>
                                     </p>
@@ -104,7 +107,7 @@
                             <div class="left11">
                                 <p class="para1">ORDER SUMMARY</p>
                                 <div id="sum-btl"><img
-                                        src="{{ asset('assets/frontend/images/' . $products[0]->summary_image) }}"
+                                        src="{{ asset('assets/frontend/images/products/' . $products[0]->summary_image) }}"
                                         alt="" class="bottle-chk">
                                 </div>
                                 <img src="{{ asset('assets/frontend/images/united.png') }}" class="united">

@@ -235,6 +235,7 @@ MAIN CSS START
     cursor: pointer;
 }
 
+.selected.box,
 .selected.box1,
 .selected.box2,
 .selected.box3,
@@ -329,7 +330,7 @@ MAIN CSS START
     position: absolute;
     right: 10px;
     top: 60px;
-    height: 255px;
+    max-height: 255px;
 }
 
 .box-stock-img {
