@@ -28,8 +28,8 @@ class OrderController extends Controller
                         $reciept = json_decode($row->payment_details)->receipt_url; 
                         $btn .= '<a href="'.$reciept.'" class="btn btn-success btn-sm mt-1" target="__blank">Receipt</a>&nbsp;';
                     }
-                    $btn .= '<a href="'.route('admin.orders.edit', $row->id).'" class="btn btn-warning btn-sm mt-1">Edit</a>&nbsp;';
-                    $btn .= '<a href="'.route('admin.orders.show', $row->order_number).'" class="btn btn-primary btn-sm mt-1" target="__blank">View Detail</a>&nbsp;';
+                    $btn .= '<a href="'.route('admin.orders.edit', $row->id).'" class="btn btn-primary btn-sm mt-1">Edit</a>&nbsp;';
+                    $btn .= '<a href="'.route('admin.orders.show', $row->order_number).'" class="btn btn-success btn-sm mt-1" target="__blank">Show</a>&nbsp;';
                     return $btn;
                     
                     
@@ -108,12 +108,13 @@ class OrderController extends Controller
     {
         // dd($order_number);
         $data['orders'] = Order::with('products')->where('order_number',$order_number)->first();
-        $data['Billings_details'] = json_decode(@$data['orders']->billing_details);
-        $data['product'] = @$data['orders']->products;
-        $data['shipping_detail'] = json_decode(@$data['orders']->shipping_details);
-        $data['payment_detail'] = json_decode(@$data['orders']->payment_details);
-        $data['payment_method_detail'] = @$data['payment_detail']->payment_method_details->card;
+        $data['Billings_details'] = json_decode($data['orders']->billing_details);
+        $data['product'] = $data['orders']->products;
+        $data['shipping_detail'] = json_decode($data['orders']->shipping_details);
+        $data['payment_detail'] = json_decode($data['orders']->payment_details);
+        $data['payment_method_detail'] = $data['payment_detail']->payment_method_details->card;
         return view('backend.admin.order.show',$data);
+              
     }
 
     /**

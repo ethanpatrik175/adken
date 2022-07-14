@@ -166,7 +166,7 @@
                                                                     Brand
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$payment_method_detail->brand }}
+                                                                    {{ $payment_method_detail->brand }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -174,7 +174,7 @@
                                                                     Country
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$payment_method_detail->country }}
+                                                                    {{ $payment_method_detail->country }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -182,7 +182,7 @@
                                                                     Card last digit
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$payment_method_detail->last4 }}
+                                                                    {{ $payment_method_detail->last4 }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -190,7 +190,7 @@
                                                                     Card Network
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$payment_method_detail->network }}
+                                                                    {{ $payment_method_detail->network }}
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -214,7 +214,7 @@
                                                                     First Name
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->first_name }}
+                                                                    {{ $shipping_detail->first_name }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -222,7 +222,7 @@
                                                                     Last Name
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->last_name }}
+                                                                    {{ $shipping_detail->last_name }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -230,7 +230,7 @@
                                                                     Address
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->address }}
+                                                                    {{ $shipping_detail->address }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -238,7 +238,7 @@
                                                                     City
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->city }}
+                                                                    {{ $shipping_detail->city }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -246,7 +246,7 @@
                                                                     Shipper State
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->shipState }}
+                                                                    {{ $shipping_detail->shipState }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -254,7 +254,7 @@
                                                                     ZipCode
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->zipcode }}
+                                                                    {{ $shipping_detail->zipcode }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -262,7 +262,7 @@
                                                                     Phone
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->phone }}
+                                                                    {{ $shipping_detail->phone }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -270,7 +270,7 @@
                                                                     Email
                                                                 </th>
                                                                 <td>
-                                                                    {{ @$shipping_detail->email }}
+                                                                    {{ $shipping_detail->email }}
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -302,7 +302,7 @@
                                                                         Address
                                                                     </th>
                                                                     <td>
-                                                                        {{ @$Billings_details->address1 }}
+                                                                        {{ $Billings_details->address1 }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -310,7 +310,7 @@
                                                                         City
                                                                     </th>
                                                                     <td>
-                                                                        {{ @$Billings_details->city }}
+                                                                        {{ $Billings_details->city }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -318,7 +318,7 @@
                                                                         Billing Zip
                                                                     </th>
                                                                     <td>
-                                                                        {{ @$Billings_details->billingZip }}
+                                                                        {{ $Billings_details->billingZip }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -326,7 +326,7 @@
                                                                         Billing State
                                                                     </th>
                                                                     <td>
-                                                                        {{ @$Billings_details->billingState }}
+                                                                        {{ $Billings_details->billingState }}
                                                                     </td>
                                                                 </tr>
 
