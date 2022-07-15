@@ -7,7 +7,7 @@
             margin-right: 17px;
         }
 
-        .danger{
+        .danger {
             background-color: #da0000;
             color: white;
             text-align: center;
@@ -15,7 +15,6 @@
             padding: 10px;
             display: none;
         }
-
     </style>
 @endpush
 
@@ -26,6 +25,12 @@
 @section('content')
     <div class="chk-bg">
         <div class="container">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="error">Test here</div>
+                </div>
+            </div>
 
             <div class="danger">
                 <div class="container">
@@ -43,8 +48,9 @@
                     </div>
                 </div>
                 <div class="chk-cont-bg">
-                    <form role="form" action="{{ route('stripe.checkout.process') }}" method="POST" class="require-validation needs-validation"
-                        data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
+                    <form role="form" action="{{ route('stripe.checkout.process') }}" method="POST"
+                        class="require-validation needs-validation" data-cc-on-file="false"
+                        data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                         @csrf
                         <div class="lft-box">
                             <h2 class="cp-leftHeading"><span>Select Your Package</span></h2>
@@ -74,15 +80,16 @@
                                         @endforeach
                                     </p>
                                     <div class="lft-cont" style="margin-top: 0px;">
-                                        @if(isset($product->description))
+                                        @if (isset($product->description))
                                             <p class="chk-p1">{!! $product->description !!}</p>
                                         @endif
                                         <p class="pack-price">
                                             ${{ $product->sale_price > 0 && $product->retail_price > $product->sale_price ? number_format($product->sale_price, 2) : number_format($product->retail_price, 2) }}<span>/{{ $product->type ?? '-' }}</span>
                                         </p>
-                                        <p class="chk-p1">Retail Price:<span>${{ number_format($product->retail_price, 2) }}</span></p>
-                                        
-                                            
+                                        <p class="chk-p1">Retail
+                                            Price:<span>${{ number_format($product->retail_price, 2) }}</span></p>
+
+
                                         <img src="{{ asset('assets/frontend/images/products/' . Str::replace(' ', '%20', $product->image)) }}"
                                             alt="" class="chk-prd" />
                                     </div>
@@ -168,14 +175,16 @@
                                     <div class="frm-box-btm" style=" float:left; display:none;" id="billingDiv">
                                         @if (Session::has('shipping_details'))
                                             <?php $shipping = Session::get('shipping_details'); ?>
-                                            
-                                            <?php //print_r($shipping); ?>
+
+                                            <?php //print_r($shipping);
+                                            ?>
                                             <input type="hidden" id="shipState"
                                                 value="{{ $shipping['shipState'] ?? @$shipping['state'] }}" />
                                             <div class="frm-element">
                                                 <label for="">Address</label>
                                                 <input type="text" name="address1"
-                                                    value="{{ $shipping['address'] ?? @$shipping['shipping_address'] }}" required="">
+                                                    value="{{ $shipping['address'] ?? @$shipping['shipping_address'] }}"
+                                                    required="">
                                             </div>
                                             <div class="frm-element">
                                                 <label for="">City</label>
@@ -185,12 +194,14 @@
                                             <div class="frm-element">
                                                 <label for="">Zip Code</label>
                                                 <input type="text" name="billingZip"
-                                                    value="{{ $shipping['zipcode'] ?? @$shipping['zip'] }}" required="">
+                                                    value="{{ $shipping['zipcode'] ?? @$shipping['zip'] }}"
+                                                    required="">
                                             </div>
                                             <div class="frm-element">
                                                 <label for="">State</label>
-                                                <input type="text" name="billingState" id="billingState" class="required" required="">
-                                                {{-- <select name="billingState" id="billingState" class="required" required="">
+                                                {{-- <input type="text" name="billingState" id="billingState" class="required" required=""> --}}
+                                                <select name="billingState" id="billingState" class="required"
+                                                    required="">
                                                     <option value="">Select State</option>
                                                     <option value="AL">Alabama</option>
                                                     <option value="AK">Alaska</option>
@@ -256,7 +267,7 @@
                                                     <option value="WV">West Virginia</option>
                                                     <option value="WI">Wisconsin</option>
                                                     <option value="WY">Wyoming</option>
-                                                </select> --}}
+                                                </select>
                                             </div>
                                         @else
                                             <div class="frm-element">
@@ -270,12 +281,12 @@
                                             <div class="frm-element">
                                                 <label for="">Zip Code</label>
                                                 <input type="text" name="billingZip" value="" required="">
-                                                
+
                                             </div>
                                             <div class="frm-element">
                                                 <label for="">State</label>
-                                                <input type="text" name="billingState" class="required" required="">
-                                                {{-- <select name="billingState" class="required" required="">
+                                                {{-- <input type="text" name="billingState" class="required" required=""> --}}
+                                                <select name="billingState" class="required" required="">
                                                     <option value="CO">Select State</option>
                                                     <option value="AL">Alabama</option>
                                                     <option value="AK">Alaska</option>
@@ -345,7 +356,7 @@
                                                     <option value="WV">West Virginia</option>
                                                     <option value="WI">Wisconsin</option>
                                                     <option value="WY">Wyoming</option>
-                                                </select> --}}
+                                                </select>
                                             </div>
                                         @endif
                                     </div>
@@ -412,6 +423,8 @@
 @endsection
 
 @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
+    </script>
     <script type="text/javascript" src="{{ asset('assets/frontend/js/jquery.creditCardValidator.js') }}"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
@@ -449,16 +462,15 @@
 
         $(document).ready(function() {
             $(".box1").trigger("click");
+            $("#billingDiffAsShipping").trigger('click');
         });
 
         $(function() {
             var $form = $(".require-validation");
             $('form.require-validation').bind('submit', function(e) {
+                $.LoadingOverlay("show");
                 var $form = $(".require-validation"),
-                    inputSelector = ['input[type=email]', 'input[type=password]',
-                        'input[type=text]', 'input[type=file]',
-                        'textarea'
-                    ].join(', '),
+                    inputSelector = ['input[type=text]'].join(', '),
                     $inputs = $form.find('.required').find(inputSelector),
                     $errorMessage = $form.find('div.error'),
                     valid = true;
@@ -490,6 +502,7 @@
                         .attr('style', 'display:block;')
                         .find('.error-messages')
                         .text(response.error.message);
+                        $.LoadingOverlay("hide");
                 } else {
                     /* token contains id, last4, and card type */
                     var token = response['id'];
@@ -509,6 +522,6 @@
                 }
             });
         }
-        // selectState($('#shipState').val(), 'billingState');
+        selectState($('#shipState').val(), 'billingState');
     </script>
 @endpush

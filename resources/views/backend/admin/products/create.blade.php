@@ -93,6 +93,16 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="sku" class="form-label">SKU</label>
+                                                <input type="text" class="form-control text-start"
+                                                    value="{{ old('sku') }}" name="sku" placeholder="Product SKU" id="sku" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter valid sku.
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-sm-4">
                                             <div class="mb-3">
                                                 <label for="retail_price" class="form-label">Retail Price (USD)</label>

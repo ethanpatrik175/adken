@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Yajra\DataTables\DataTablesServiceProvider::class,
+        LaravelShipStation\ShipStationServiceProvider::class,
         /*
          * Application Service Providers...
          */

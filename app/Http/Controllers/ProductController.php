@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\App;
 
 class ProductController extends Controller
 {
@@ -17,7 +18,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
+        $app= App::getFacadeRoot();
+        $shipStation = $app['LaravelShipStation\ShipStation'];
+        dd($shipStation);
+
         if ($request->ajax()) {
             $data = DB::table('products')
                 ->leftJoin('users', 'products.added_by', '=', 'users.id')
@@ -100,7 +105,8 @@ class ProductController extends Controller
             'packing_type' => 'required|max:20',
             'image' => 'required|image|max:1024',
             'summary_image' => 'required|image|max:1024',
-            'quantity' => 'required'
+            'quantity' => 'required',
+            'sku' => 'required|max:20'
         ]);
 
         $product = new Product();
@@ -119,6 +125,7 @@ class ProductController extends Controller
         $metadata['meta_title'] = $request->meta_title ?? '';
         $metadata['meta_description'] = $request->meta_description ?? '';
         $metadata['meta_keywords'] = $request->meta_keywords ?? '';
+        $metadata['sku'] = $request->sku ?? '';
 
         $product->metadata = json_encode($metadata);
 
@@ -189,7 +196,8 @@ class ProductController extends Controller
             'slug' => 'required|max:250',
             'retail_price' => 'required',
             'packing_type' => 'required|max:20',
-            'quantity' => 'required'
+            'quantity' => 'required',
+            'sku' => 'required|max:20'
         ]);
 
         $product->updated_by = Auth::user()->id;
@@ -207,6 +215,7 @@ class ProductController extends Controller
         $metadata['meta_title'] = $request->meta_title ?? '';
         $metadata['meta_description'] = $request->meta_description ?? '';
         $metadata['meta_keywords'] = $request->meta_keywords ?? '';
+        $metadata['sku'] = $request->sku ?? '';
 
         $product->metadata = json_encode($metadata);
 
@@ -280,7 +289,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        abort(404);
     }
 
     public function createSlug(Request $request)
