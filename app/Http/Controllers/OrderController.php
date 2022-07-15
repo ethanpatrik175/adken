@@ -36,9 +36,9 @@ class OrderController extends Controller
                 })
                 ->addColumn('customer', function ($row) {
                     $shipping = json_decode($row->shipping_details);
-                    $html = '<b>' . $shipping->first_name . ' ' . $shipping->last_name . ",</b> <br />";
-                    $html .= 'Email: <a href="mailto:' . $shipping->email . '">' . $shipping->email . '</a> <br />';
-                    $html .= 'Phone: <a href="tel:' . $shipping->phone . '">' . $shipping->phone . '</a>';
+                    $html = '<b>' . @$shipping->first_name . ' ' . @$shipping->last_name . ",</b> <br />";
+                    $html .= 'Email: <a href="mailto:' . @$shipping->email . '">' . @$shipping->email . '</a> <br />';
+                    $html .= 'Phone: <a href="tel:' . @$shipping->phone . '">' . @$shipping->phone . '</a>';
                     return $html;
                 })
                 ->addColumn('billing_address', function ($row) {
@@ -53,11 +53,11 @@ class OrderController extends Controller
                 })
                 ->addColumn('shipping_address', function ($row) {
                     $shipping = json_decode($row->shipping_details);
-                    $html = '<b>' . $shipping->first_name . ' ' . $shipping->last_name . ",</b> <br />";
-                    $html .= 'Email: <a href="mailto:' . $shipping->email . '">' . $shipping->email . '</a> <br />';
-                    $html = $shipping->address . ' ,' . $shipping->city . '<br />';
-                    $html .= 'Shipping State Code: ' . $shipping->shipState . ', Zipcode: ' . $shipping->zipcode;
-                    $html .= 'Phone: <a href="tel:' . $shipping->phone . '">' . $shipping->phone . '</a>';
+                    $html = '<b>' . @$shipping->first_name . ' ' . @$shipping->last_name . ",</b> <br />";
+                    $html .= 'Email: <a href="mailto:' . @$shipping->email . '">' . @$shipping->email . '</a> <br />';
+                    $html .= @$shipping->address . ' ,' . @$shipping->city . '<br />';
+                    $html .= 'Shipping State Code: ' . @$shipping->shipState . ', Zipcode: ' . @$shipping->zipcode;
+                    $html .= 'Phone: <a href="tel:' . @$shipping->phone . '">' . @$shipping->phone . '</a>';
                     return $html;
                 })
                 ->addColumn('total', function ($row) {

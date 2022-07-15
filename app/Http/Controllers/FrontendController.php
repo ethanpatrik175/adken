@@ -17,35 +17,27 @@ class FrontendController extends Controller
 
     public function indexProcess(Request $request)
     {
-        if(isset($request->contact))
-        {
-            $request->session()->put('shipping_details', $request->contact);
-        }
-        else
-        {
-            $request->validate([
-                "first_name" => "required|string|min:3|max:20",
-                "last_name" => "required|string|min:3|max:20",
-                "address" => "required",
-                "city" => "required",
-                "shipState" => "required",
-                "zipcode" => "required",
-                "phone" => "required",
-                "email" => "required|email"
-            ]);
-            
-            $shipping['first_name'] = $request->first_name ?? '';
-            $shipping['last_name'] = $request->last_name ?? '';
-            $shipping['address'] = $request->address ?? '';
-            $shipping['city'] = $request->city ?? '';
-            $shipping['shipState'] = $request->shipState ?? '';
-            $shipping['zipcode'] = $request->zipcode ?? '';
-            $shipping['phone'] = $request->phone ?? '';
-            $shipping['email'] = $request->email ?? '';
-            
-            $request->session()->put('shipping_details', $shipping);
-        }
+        $request->validate([
+            "first_name" => "required|string|min:3|max:20",
+            "last_name" => "required|string|min:3|max:20",
+            "address" => "required",
+            "city" => "required",
+            "shipState" => "required",
+            "zipcode" => "required",
+            "phone" => "required",
+            "email" => "required|email"
+        ]);
         
+        $shipping['first_name'] = $request->first_name ?? '';
+        $shipping['last_name'] = $request->last_name ?? '';
+        $shipping['address'] = $request->address ?? '';
+        $shipping['city'] = $request->city ?? '';
+        $shipping['shipState'] = $request->shipState ?? '';
+        $shipping['zipcode'] = $request->zipcode ?? '';
+        $shipping['phone'] = $request->phone ?? '';
+        $shipping['email'] = $request->email ?? '';
+        
+        $request->session()->put('shipping_details', $shipping);
 
         return redirect()->route('front.checkout');
     }

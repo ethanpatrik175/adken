@@ -19,9 +19,9 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {   
-        $app= App::getFacadeRoot();
-        $shipStation = $app['LaravelShipStation\ShipStation'];
-        dd($shipStation);
+        // $app= App::getFacadeRoot();
+        // $shipStation = $app['LaravelShipStation\ShipStation'];
+        // dd($shipStation);
 
         if ($request->ajax()) {
             $data = DB::table('products')

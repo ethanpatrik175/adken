@@ -67,9 +67,14 @@
                                     data-summary-image="{{ asset('assets/frontend/images/products/' . $product->summary_image) }}"
                                     data-offer-qty="{{ $product->quantity ?? 0 }}"
                                     data-shipping-charges="{{ $product->shipping_charges ?? 0 }}"
+                                    data-product-id="{{ $product->id }}"
                                     onclick='selectProduct("box{{ $counter }}")'>
                                     <?php $productName = Str::of($product->name)->explode('+'); ?>
-                                    <input type="hidden" name="id" value="{{ $product->id }}" />
+                                    @if($counter == 1)
+                                        <input type="hidden" name="id" value="{{$product->id}}" />
+                                    @else
+                                        <input type="hidden" name="id" value="" />
+                                    @endif
                                     <p class="hdg-txt">
                                         {{ $productName[0] }}
                                         @foreach ($productName as $index => $pName)
@@ -88,8 +93,6 @@
                                         </p>
                                         <p class="chk-p1">Retail
                                             Price:<span>${{ number_format($product->retail_price, 2) }}</span></p>
-
-
                                         <img src="{{ asset('assets/frontend/images/products/' . Str::replace(' ', '%20', $product->image)) }}"
                                             alt="" class="chk-prd" />
                                     </div>
@@ -167,8 +170,7 @@
                                                 Yes &nbsp;
                                                 <input class="billingSameAsShipping billing_address_notsame"
                                                     name="billShipSame" id="billingDiffAsShipping" value="0"
-                                                    type="radio" checked="checked">
-                                                No
+                                                    type="radio" checked="checked"> No
                                             </div>
                                         </div>
                                     </div>
@@ -442,6 +444,7 @@
 
         function selectProduct(box) {
             $('.' + box).addClass('selected');
+            $('input[name="id"]').val($('.' + box).data('product-id'));
 
             for (let i = 0; i <= $('.' + box).data('products'); i++) {
                 if ('.box' + i == '.' + box) {
